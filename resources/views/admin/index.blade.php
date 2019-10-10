@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="csrf-token" content="{{csrf_token()}}">
 
-  @include('layout.admin_header')
+  @include('layouts.admin_header')
 
   <!-- Google Font -->
   <link rel="stylesheet"
@@ -353,7 +353,7 @@ desired effect
 </div>
 <!-- ./wrapper -->
 
-@include('layout.admin_footer')
+@include('layouts.admin_footer')
 
 </body>
 </html>

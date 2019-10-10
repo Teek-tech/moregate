@@ -16,7 +16,7 @@
     
         <!--====== TITLE TAG ======-->
         <title>MOREGATE INDUSTRY | Home</title>
-        @include('layout.header')
+        @include('layouts.header')
     </head>
     
     <body class="single-page">
@@ -40,7 +40,7 @@
                 <!--MAINMENU AREA-->
                 <div class="mainmenu-area" id="mainmenu-area">
                     <div class="mainmenu-area-bg"></div>
-                    @include('layout.nav')
+                    @include('layouts.nav')
                 </div>
                 <!--END MAINMENU AREA END-->
             </div>
@@ -432,7 +432,7 @@
             </div>
         </section>
 
- @include('layout.footer')
+ @include('layouts.footer')
 </body>
 
 </html>
