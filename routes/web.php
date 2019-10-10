@@ -53,3 +53,11 @@ Route::delete('admin/{id}/edit', 'customerController@delete')->name('customer.de
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
