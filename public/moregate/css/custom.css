@@ -1,0 +1,162 @@
+.promo-bottom-area h3 {
+    color: #f39c12;
+    font-size: 15px;
+}
+.myflex{
+    display: flex;
+}
+.wrapper{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.promo-bottom-content h2 {
+    top: 70px;
+}
+.area-title-test{
+    margin-top: 200px;
+    position: relative;
+}
+.single-page .welcome-text h2 {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+.page-location{
+    font-size: 20px;
+}
+
+.single-page .welcome-service h2{
+    bottom: 70px;
+    font-size: 40px;
+    color: white;
+}
+.single-service-three{
+    height: 200px;
+}
+
+.single-page .single-blog{
+    margin-top: -244px;
+}
+
+/* top image */
+.top-area-bg-about {
+    background: rgba(0, 0, 0, 0) url("../images/about/blog/blog_8.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-about::after {
+    background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.single-page .top-area-bg-about::after {
+    opacity: 0.7;
+}
+
+
+.top-area-bg-aboutpro {
+    background: rgba(0, 0, 0, 0) url("../img/slider/slide_2.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-aboutpro::after {
+    background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.single-page .top-area-bg-aboutpro::after {
+    opacity: 0.7;
+}
+
+.top-area-bg-service {
+    background: rgba(0, 0, 0, 0) url("../images/services/service/service-area-bg-2.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-service::after {
+    background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.single-page .top-area-bg-service::after {
+    opacity: 0.7;
+}
+
+.top-area-bg-contact {
+    background: rgba(0, 0, 0, 0) url("../images/contact/contact/blog_5.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-contact::after {
+    background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.single-page .top-area-bg-contact::after {
+    opacity: 0.7;
+}
+
+.top-area-bg-register {
+    background: rgba(0, 0, 0, 0) url("../images/register/bg/2.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-register::after {
+    background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.single-page .top-area-bg-register::after {
+    opacity: 0.7;
+}
+
