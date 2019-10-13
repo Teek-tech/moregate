@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
 use App\Models\Shipment;
 
 class shipmentController extends Controller
 {
     public function index(){
-        return view('admin.index');
+        $shipPost = Shipment::all();
+        // $shipPost -> Shipment::setTable('Shipment')->latest('shipmentdate')->first();        
+        $getPost = Customer::all();
+        $allcustomer = Customer::get()->count();
+        return view('admin.index', compact('getPost', 'allcustomer', 'shipPost'));
     }
 
-    public function store(Request $request){
-        $savePost = new  Shipment;
+    public function update(Request $request){
+        $savePost = new Shipment;
         $savePost->shipmentdate = $request->input('shipmentdate');
         $savePost->save();
 

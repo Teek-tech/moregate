@@ -32,19 +32,21 @@ Route::patch('/todo/{id}/edit', 'todoController@update')->name('todo.update');
 Route::get('/shipwithus', 'customerController@index');
 Route::post('/shipwithus', 'customerController@store')->name('register.save');
 
-Route::get('admin', 'customerController@admin');
-Route::post('/admin', 'customerController@store')->name('register.save');
+Auth::routes();
 
-Route::get('admin_allcustomers', 'customerController@adminall');
-Route::post('admin_allcustomers', 'customerController@store')->name('register.save');
+Route::get('admin', 'AdminController@admin');
+Route::post('/admin', 'AdminController@store')->name('register.save');
 
-Route::get('admin_editcustomer/{id}/edit', 'customerController@edit')->name('customer.edit');
-Route::patch('admin_editcustomer/{id}/edit', 'customerController@update')->name('customer.update');
+Route::get('admin_allcustomers', 'AdminController@adminall');
+Route::post('admin_allcustomers', 'AdminController@store')->name('register.save');
 
-//Route::get('admin', 'shipmentController@index');
-Route::patch('admin', 'shipmentController@store')->name('shipment.update');
+Route::get('admin_editcustomer/{id}/edit', 'AdminController@edit')->name('customer.edit');
+Route::patch('admin_editcustomer/{id}/edit', 'AdminController@update')->name('customer.update');
 
-Route::delete('admin/{id}/edit', 'customerController@delete')->name('customer.delete');
+Route::get('admin', 'shipmentController@index');
+Route::patch('admin', 'shipmentController@update')->name('shipment.update');
+
+Route::delete('admin/{id}/edit', 'AdminController@delete')->name('customer.delete');
 
 // Route::get('admin', 'customerController@searchview')->name('customer.search');
 // Route::get('admin', 'customerController@search')->name('customer.search');
@@ -52,12 +54,7 @@ Route::delete('admin/{id}/edit', 'customerController@delete')->name('customer.de
 // Route::get('admin_allcustomers', 'customerController@search')->name('customer.search');
 
 
+Route::get('/home', 'AdminController@index');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

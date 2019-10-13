@@ -83,7 +83,13 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-center">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" 
+                    class="btn btn-default btn-flat">{{ __('Logout') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
                 </div>
               </li>
             </ul>
@@ -237,6 +243,11 @@ desired effect
         <strong>Success!</strong> {{ session()->get('editmessage') }}
       </div>
     @endif
+    @if(session()->has('success'))
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> {{ session()->get('success') }}
+      </div>
+    @endif
     <!-- ./col -->
     <div class="col-md-6">
           <!-- small box -->
@@ -256,7 +267,7 @@ desired effect
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>12-09-2020</h3>
+              <h3>29TH SEPT</h3>
 
               <p>Shipment arrival</p>
             </div>
