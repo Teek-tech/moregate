@@ -51,8 +51,8 @@
                     <div class="row flex-v-center">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="welcome-text text-center">
-                                <h1>JET SERVICES, FASTEST WAY FOR YOUR GOODS</h1>
-                                <p>Nigeria's No1 shipping Company, Fastest way for your goods to reach you at exact time, no delay!!!.</p>
+                                <h1>THE BEST SHIPPING SERVICES</h1>
+                                <p>Nigeria's No. 1 Shipping Company.</p>
                                 <div class="home-button">
                                     <a href="{{asset('services')}}">Our Service</a>
                                     <a href="{{asset('contact')}}">Contact us</a>
@@ -67,8 +67,8 @@
                     <div class="row flex-v-center">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="welcome-text text-center">
-                                <h1>PATRONIZE THE FASTEST SHIPPING COMPANY TODAY</h1>
-                                <p>Nigeria's No1 shipping Company, Fastest way for your goods to reach you at exact time, no delay!!!.</p>
+                                <h1>WE ARE PROFESSIONALS IN WHAT WE DO</h1>
+                                <p>Jet Services, Fastest and smartest way to transport your goods.</p>
                                 <div class="home-button">
                                     <a href="{{asset('services')}}">Our Service</a>
                                     <a href="{{asset('contact')}}">Contact us</a>
@@ -94,8 +94,8 @@
                         </div>
                         <div class="blog-details text-center">
                             <div class="blog-meta"><a href="#"><i class="fa fa-home"></i></a></div>
-                            <h3>Warehousing</h3>
-                            <p>we maintain warehouses where customers’ goods are safely stored pending delivery</p>
+                            <h3>We Provide Warehousing Services</h3>
+                            <p>Jet Services warehousing ensure your goods are safely stored pending to delivery</p>
                             <a href="{{asset('services')}}" class="read-more">Read More</a>
                         </div>
                     </div>
