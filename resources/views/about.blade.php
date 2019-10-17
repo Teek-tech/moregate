@@ -70,8 +70,8 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
                     <div class="area-title text-center wow fadeIn">
-                        <h2>welcome to Moregate!</h2>
-                        <p>know more about us</p>
+                        <h2>Welcome to Moregate</h2>
+                        <p>We are professionals in what we do.</p>
                     </div>
                 </div>
             </div>
@@ -89,18 +89,18 @@
                 <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
                     <div class="about-content-area wow fadeIn">
                         <div class="about-content">
-                            <h2>We have 24 years experience in this passion</h2>
+                            <h2>We have thrived for 24 years</h2>
                                 <p>Moregate Industries limited was incorporated in May 06, 1995 as a 
                                         private limited liability company engaging in importation and
                                         distribution of agricultural products and later diversified 
-                                        into cargoes and shipment, warehousing and telecommunications. <br>
+                                        into cargoes and shipment, warehousing and telecommunications. <br><br>
                                         Due to growing interest and increase in customers based, the subsidiary
                                         JET SERVICES LEADS LOGISTICS CO. LTD came on board to handle the cargoes shipment and warehousing. <br> 
                                         We render world class professional services supported by good working 
                                         relationship with our foreign technical partners who are experienced and
                                         have technical capabilities. Due to our strength of abundant experienced
                                         professionals and our strong foreign technical partners, we are capable 
-                                        of meeting any volume of cargoes shipment to Nigeria. <br>
+                                        of meeting any volume of cargoes shipment to Nigeria. <br><br>
                                         At Moregate Industries limited, highly professional standards are being maintained.
                                         Efficient, timely service delivery and a formidable workforce have made us one of 
                                         the fastest growing logistics company in the country.     
@@ -113,9 +113,9 @@
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="about-history-content">
                         <h3>Core values</h3>
-                        <p>Performance guaranteed because of highly skill developed staff</p>
+                        <p>High Level Performance is Guaranteed</p>
                         <ul>
-                            <li><i class="fa fa-check"></i>Cheaper as a result of experienced professionals</li>
+                            <li><i class="fa fa-check"></i>Cheaper shipping services as a result of experienced professionals</li>
                             <li><i class="fa fa-check"></i>Quick delivery as a result of experienced staff</li>
                             <li><i class="fa fa-check"></i>Safety of goods due to secured warehousing</li>
                             <li><i class="fa fa-check"></i>Performance guaranteed because of highly skill developed staff</li>
@@ -144,7 +144,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="faqs-list">
-                        <h3>why choose <span>Morgate Industries</span></h3>
+                        <h3>Why choose <span>Morgate Industries</span></h3>
                         <div class="panel-group" id="accordion">
                             <div class="panel active">
                                 <div class="panel-heading">
@@ -153,7 +153,7 @@
                                     </h4>
                                 </div>
                                 <div id="faqs_one" class="panel-collapse collapse in">
-                                    <div class="panel-body">fast, speed and safe delivery of shipment </div>
+                                    <div class="panel-body">Fast, speed and safe delivery of shipment </div>
                                 </div>
                             </div>
                             <div class="panel">

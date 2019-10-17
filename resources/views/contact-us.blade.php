@@ -50,11 +50,7 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="welcome-text text-left">
                             <h2>Contact Us</h2>
-                            <ul class="page-location">
-                                <li><a href="/">Home</a></li>
-                                <li>/</li>
-                                <li><a href="{{asset('contact')}}">Contact Us</a></li>
-                            </ul>
+                            <p>We are online 24/7 to process your requests.</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +67,7 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="area-title text-center">
                             <h3>GET IN TOUCH</h3>
-                            <p>Need any help just send a message via our email address</p>
+                            <p>We process your request immediatey it is received.</p>
                         </div>
                     </div>
                 </div>
@@ -80,18 +76,21 @@
                             <div class="contact-image">
                                 <div class="contact-address">
                                     <h4>Nigeria Address</h4>
-                                    <p>Phone: <a href="callto:+234 803 572 5626">+234 803 572 5626, 09069621717, 08035478858</a></p>
-                                    <p>Email: <a href="mailto:leadsjetservice@yahoo.com">chrispak24@yahoo.com, leadsjetservice@yahoo.com </a></p>
+                                    <p>Phone 1: <a href="callto:+2348035725626">+234 803 572 5626</a></p>
+                                    <p>Phone 2: <a href="callto:+2349069621717">+234 906 962 1717</a></p>
+                                    <p>Phone 3: <a href="callto:+2348035478858">+234 803 547 8858</a></p>
+                                    <p>Email 1: <a href="mailto:chrispak24@yahoo.com">chrispak24@yahoo.com</a></p> 
+                                    <p>Email 2: <a href="mailto:leadsjetservice@yahoo.com">leadsjetservice@yahoo.com</a></p>
                                     <address>
-                                        Office:No 61 Azikiwe Road, 3rd Floor Aba, Abia State                                        
+                                        Address: No 61 Azikiwe Road, 3rd Floor Aba, Abia State .                                       
                                     </address>
                                 </div>
                                 <div class="contact-address">
                                     <h4>China Address</h4>
-                                    <p>Phone: <a href="callto:+8613570263293">Enquiries- Emeka +8613570263293</a></p>
+                                    <p>Phone [Emeka]: <a href="callto:+8613570263293">+8613570263293</a></p>
                                     <p>Email: <a href="mailto:leadsjetservice">leadsjetservice@gmail.com</a></p>
                                     <address>
-                                        GUANGZHOU : Room Dr, 8# BingFang street GuangHua Road, Guangzhou China
+                                        GUANGZHOU: Room Dr, 8# BingFang street GuangHua Road, Guangzhou, China.
                                     </address>
                                 </div>
                             </div>

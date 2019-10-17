@@ -52,12 +52,7 @@
                 <div class="row flex-v-center">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="welcome-service text-left">
-                            <h2>Services</h2>
-                            <ul class="page-location">
-                                <li><a href="/">Home</a></li>
-                                <li>/</li>
-                                <li><a href="{{asset('services')}}">Service</a></li>
-                            </ul>
+                            <h2>What we do</h2>
                         </div>
                     </div>
                 </div>
@@ -78,8 +73,10 @@
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-home"></i></a></div>
                                 <h3>Warehousing</h3>
-                                <p>we maintain warehouses where customers’ goods are safely stored pending delivery</p>
-                                <a href="{{asset('services')}}" class="read-more">Read More</a>
+                                <p>
+                               Your goods are always safe with us. We provide and maintain warehousing services to our customers
+                                 in order to ensure goods are safely stored pending to delivery.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -91,8 +88,8 @@
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
                                 <h3>CARGO MONITORING & PLANNING SERVICES</h3>
-                                <p>Keeping track of our client’s cargos from the port of loading to the discharge on to our warehouse</p>
-                                <a href="{{asset('services')}}" class="read-more">Read More</a>
+                                <p>Our team of professionals ensure we keep track of our client’s 
+                                cargos from port of loading to place of discharge and to our warehouse afterwards.</p>
                             </div>
                         </div>
                     </div>
@@ -104,8 +101,8 @@
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-truck"></i></a></div>
                                 <h3>SPEEDY AND SAFE DELIVERY OF SHIPMENTS </h3>
-                                <p>with our team of professionals, we deliver any consignments promptly and safely to meet the client’s expected arrival time. (EAT)</p>
-                                <a href="{{asset('services')}}" class="read-more">Read More</a>
+                                <p>We thrive on prompt delivery and therefore ensure that all consignments 
+                                promptly and safely meet the client’s objective - Expected Arrival Time. (EAT)</p>
                             </div>
                         </div>
                     </div>
@@ -120,7 +117,6 @@
                     <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
                         <div class="area-title text-center wow fadeIn">
                             <h2>Our Service</h2>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, </p>
                         </div>
                     </div>
                 </div>
@@ -129,42 +125,43 @@
                         <div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
                             <div class="service-icon-three"><i class="fa fa-truck"></i></div>
                             <h4>Cargo Monitoring & Planning service</h4>
-                            <p>Keeping track of our client’s cargos from the port of loading to the discharge on to our warehouse.</p>
+                            <p>Let us plan and manage how your goods are transported from one destination to another.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-service-three wow fadeInUp" data-wow-delay="0.3s">
                             <div class="service-icon-three"><i class="fa fa-male"></i></div>
                             <h4>Personal Container</h4>
-                            <p>we also handle shipment of personal containers .</p>
+                            <p>We understand how special your business means to and we are ready to give you some personal services.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-service-three wow fadeInUp" data-wow-delay="0.4s">
                             <div class="service-icon-three"><i class="fa fa-ship"></i></div>
-                            <h4>Groupage Shipping</h4>
-                            <p>we undertake the groupage shipments.</p>
+                            <h4>Group Shipping</h4>
+                            <p>You do not have to deep a hole in your pocket, we provide services that support group shipping.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-service-three wow fadeInUp" data-wow-delay="0.2s">
                             <div class="service-icon-three"><i class="fa fa-dropbox"></i></div>
-                            <h4>ware house</h4>
-                            <p>we maintain warehouses where customers’ goods are safely stored pending delivery.</p>
+                            <h4>Warehousing</h4>
+                            <p>Our warehouse shelter your goods pending to the delivery time.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-service-three wow fadeInUp" data-wow-delay="0.3s">
                             <div class="service-icon-three"><i class="fa fa-cog"></i></div>
                             <h4>FINANCIAL ADVISORY SERVICES </h4>
-                            <p>we offer advisory services on foreign exchange to our clients.</p>
+                            <p>Our financial experts offer advisory services on foreign exchange to our clients.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-service-three wow fadeInUp" data-wow-delay="0.4s">
                             <div class="service-icon-three"><i class="fa fa-bicycle"></i></div>
                             <h4>SPEEDY AND SAFE DELIVERY OF SHIPMENTS </h4>
-                            <p>with our team of professionals, we deliver any consignments promptly and safely to meet the client’s expected arrival time. (EAT)</p>
+                            <p>Our team professionals ensure we deliver all consignments promptly and safely to meet 
+                            the client’s goods expected arrival time. (EAT)</p>
                         </div>
                     </div>
                 </div>
