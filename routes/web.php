@@ -23,11 +23,10 @@ Route::get('services', function () {
 Route::get('contact', function () {
     return view('contact-us');
 });
-Route::get('/todo', 'todoController@index');
-Route::post('/todo', 'todoController@store')->name('todo.insert');
 
-Route::get('/todo/{id}/edit', 'todoController@edit')->name('todo.edit');
-Route::patch('/todo/{id}/edit', 'todoController@update')->name('todo.update');
+Route::get('shipments', 'shipmentController@arrival');
+
+
 
 Route::get('/shipwithus', 'customerController@index');
 Route::post('/shipwithus', 'customerController@store')->name('register.save');
@@ -43,8 +42,14 @@ Route::post('admin_allcustomers', 'AdminController@store')->name('register.save'
 Route::get('admin_editcustomer/{id}/edit', 'AdminController@edit')->name('customer.edit');
 Route::patch('admin_editcustomer/{id}/edit', 'AdminController@update')->name('customer.update');
 
-Route::get('admin', 'shipmentController@index');
-Route::patch('admin', 'shipmentController@update')->name('shipment.update');
+Route::get('shipmentadmin', 'shipmentController@adminshipment');
+Route::post('shipmentadmin', 'shipmentController@insert')->name('shipment.insert');
+
+Route::get('shipmentedit/{id}/edit', 'shipmentController@edit')->name('shipment.edit');
+Route::patch('shipmentedit/{id}/edit', 'shipmentController@update')->name('shipment.update');
+
+Route::delete('shipmentadmin/{id}/edit', 'shipmentController@delete')->name('shipment.delete');
+
 
 Route::delete('admin/{id}/edit', 'AdminController@delete')->name('customer.delete');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Shipment;
 
 class AdminController extends Controller
 {
@@ -25,7 +26,8 @@ class AdminController extends Controller
     public function admin(){
          $getPost = Customer::all();
          $allcustomer = Customer::get()->count();
-         return view('admin.index',  compact('getPost', 'allcustomer'));
+         $allshipment = Shipment::get()->count();
+         return view('admin.index',  compact('getPost', 'allcustomer', 'allshipment'));
     }
 
     public function adminall(){
@@ -44,7 +46,6 @@ class AdminController extends Controller
       $savePost->phone = $request->input('phone');
       $savePost->dateofbirth = $request->input('dateofbirth');
       $savePost->company = $request->input('company');
-      //dd($savePost->body);
       
       $input = request()->validate([
         'name'=> 'required|min:6',
@@ -92,7 +93,7 @@ class AdminController extends Controller
         $deletePost =  Customer::findOrFail($id);
         $deletePost->delete();
     
-        return back();
+        return back()->with('deletemessage','Customer deleted!');
     
     }
 

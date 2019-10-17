@@ -135,7 +135,8 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li  class="active"><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
+        <li><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
+        <li class="active"><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -158,69 +159,62 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
+    @if(session()->has('message'))
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> {{ session()->get('message') }}
+      </div>
+    @endif
+    @if(session()->has('editmessage'))
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> {{ session()->get('editmessage') }}
+      </div>
+    @endif
+    @if(session()->has('deletemessage'))
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> {{ session()->get('deletemessage') }}
+      </div>
+    @endif
   
     <!-- EDIT CUSTOMER DETAIL -->
     <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="contact-form">
-                            <form action="{{route('customer.update', $editPost->id)}}" method="post">
+                            <form action="{{route('shipment.insert')}}" method="post">
                             @csrf 
-                            @method('patch')
+                            @method('post')
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name.." value="{{$editPost->name}}">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name of shipment..." value="{{old('name')}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('name')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="email-field">
-                                                <label for="Email">Email</label>
+                                                <label for="Email">Details</label>
                                             <div class="form-input">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email.." value="{{$editPost->email}}">
+                                                <input type="text" class="form-control" id="details" name="details" placeholder="Details of Shipment" value="{{old('details')}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('email')}}</div>
+                                            <div class="text-danger">{{$errors->first('details')}}</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
-                                                <label for="phone-field">Phone Number</label>
+                                                <label for="phone-field">Shipment Arrival date</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone..." value="{{$editPost->phone}}">
+                                                <input type="date" class="form-control" id="shipmentdate" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('phone')}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="phone-field">
-                                                <label for="Date of birth">Date of birth</label>
-                                            <div class="form-input">
-                                                <input type="date" class="form-control" id="dateofbirth" name="dateofbirth" placeholder="date of birth.." value="{{$editPost->dateofbirth}}">
-                                            </div>
-                                            <div class="text-danger">{{$errors->first('dateofbirth')}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="message-field">
-                                                <label for="Company">Company</label>
-                                            <div class="form-input">
-                                                <input type="text" class="form-control" id="company" name="company" placeholder="Company name.." value="{{$editPost->company}}">
-                                            </div>
-                                            <div class="text-danger">{{$errors->first('company')}}</div>
+                                            <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <button type="submit" name="update_cust" class="btn btn-primary">Update</button>
+                                            <button type="submit" name="update" class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -229,6 +223,45 @@ desired effect
                     </div>
                 </div>    
 
+                
+        <!-- table -->
+    <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">All Shipment Arrivals</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table id="table_id" class="display">
+                  <thead>
+                    <th>Name</th>
+                    <th>details</th>
+                    <th>Date of Arrivals</th>
+                    <th>Action</th>
+                  </thead>
+                  <tbody>
+                  @foreach($shipPost as $item)
+                    <tr>
+                      <td>{{$item->name}}</td>
+                      <td>{{$item->details}}</td>
+                      <td>{{$item->shipmentdate}}</td>
+                      <td>
+                        <span><a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id">Edit</a></span> 
+                            <form action="{{route('shipment.delete', $item->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                              <button class="btn btn-danger btn-cust" type="submit">Delete</button>
+                            </form>
+                      </td>
+                    </tr>
+                  @endforeach  
+                </tbody>
+               </table>
+             </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
     </section>
     <!-- /.content -->
   </div>

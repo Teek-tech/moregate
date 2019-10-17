@@ -11,10 +11,6 @@ class customerController extends Controller
         return view('shipwithus');
     }
 
-    
-
-    
-
     public function store(Request $request){ 
 
       $savePost = new Customer;

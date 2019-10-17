@@ -54,6 +54,12 @@
     <script src="{{asset('moregate/js/stellarnav.min.js')}}"></script>
     <script src="{{asset('moregate/js/contact-form.js')}}"></script>
     <script src="{{asset('moregate/js/jquery.sticky.js')}}"></script>
+    <script type="text/javascript" charset="utf8" src="{{asset('moregate/js/datatables.min.js')}}"></script>
 
     <!--===== ACTIVE JS=====-->
     <script src="{{asset('moregate/js/main.js')}}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } )
+    </script>

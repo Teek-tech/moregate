@@ -1,5 +1,5 @@
 <!--====== FAVICON ICON =======-->
-<link rel="shortcut icon" type="image/ico" href="moregate/images/favicon.png" />
+<link rel="shortcut icon" type="image/ico" href="moregate/images/favicon.png"/>
     
     <!--====== STYLESHEETS ======-->
     <link rel="stylesheet" href="{{asset('moregate/css/normalize.css')}}">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('moregate/css/owl.carousel.css')}}">
     <link href="{{asset('moregate/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('moregate/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('moregate/css/datatables.min.css')}}">
 
     <!--====== MAIN STYLESHEETS ======-->
     <link href="{{asset('moregate/css/style.css')}}" rel="stylesheet">

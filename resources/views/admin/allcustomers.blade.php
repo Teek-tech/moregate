@@ -66,18 +66,18 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="../moregate/images/admin/userimg/user_image.jpg" class="user-image" alt="User Image">
+              <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Chris Miracle.</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="../moregate/images/admin/userimg/user_image.jpg" class="img-circle" alt="User Image">
+                <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="img-circle" alt="User Image">
 
                 <p>
-                Chris Miracle. - Moregate Staff
-                  <small>Member since Nov. 2012</small>
+                {{Auth::user()->name}} - Moregate Staff
+                <small>Moregate Admin Platform</small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -108,10 +108,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../moregate/images/admin/userimg/user_image.jpg" class="img-circle" alt="User Image">
+          <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Chris Miracle.</p>
+          <p>{{Auth::user()->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -130,12 +130,13 @@ desired effect
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" data-widget="tree" style="margin-top:10px;">
         <li class="header">MAIN NAVIGATION</li>
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li  class="active"><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
+        <li><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
