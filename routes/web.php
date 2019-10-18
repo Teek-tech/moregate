@@ -20,16 +20,15 @@ Route::get('about', function () {
 Route::get('services', function () {
     return view('services');
 });
-Route::get('contact', function () {
-    return view('contact-us');
-});
+Route::get('contact', 'ContactformController@create');
+Route::post('contact', 'ContactformController@send')->name('send.message');
 
 Route::get('shipments', 'shipmentController@arrival');
 
 
 
 Route::get('/shipwithus', 'customerController@index');
-Route::post('/shipwithus', 'customerController@store')->name('register.save');
+Route::post('/shipwithus', 'customerController@store')->name('register.insert');
 
 Auth::routes();
 
