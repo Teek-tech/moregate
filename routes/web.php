@@ -11,15 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ContactformController@home');
+Route::post('/', 'ContactformController@send')->name('send.message');
+
+
 Route::get('about', function () {
     return view('about');
 });
 Route::get('services', function () {
     return view('services');
 });
+
+
 Route::get('contact', 'ContactformController@create');
 Route::post('contact', 'ContactformController@send')->name('send.message');
 

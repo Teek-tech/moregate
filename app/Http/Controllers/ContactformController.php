@@ -13,6 +13,11 @@ class ContactformController extends Controller
         return view('contact.contact-us');
     }
 
+    public function home(){
+
+        return view('welcome');
+    }
+
     public function send(){
 
         $data = request()->validate([
