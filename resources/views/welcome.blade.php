@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Transportation & Agency Template is a simple Smooth transportation and Agency Based Template" />
         <meta name="keywords" content="Portfolio, Agency, Onepage, Html, Business, Blog, Parallax" />
+        <meta name="csrf-token" content="{{csrf_token()}}">
     
         <!--====== TITLE TAG ======-->
         <title>MOREGATE INDUSTRY | Home</title>
@@ -54,7 +55,7 @@
                                 <h1>THE BEST SHIPPING SERVICES</h1>
                                 <p>Nigeria's No. 1 Shipping Company.</p>
                                 <div class="home-button">
-                                    <a href="{{asset('services')}}">Our Service</a>
+                                    <a href="{{asset('shipments')}}">Shipment Arrivals</a>
                                     <a href="{{asset('contact')}}">Contact us</a>
                                 </div>
                             </div>
@@ -70,8 +71,8 @@
                                 <h1>WE ARE PROFESSIONALS IN WHAT WE DO</h1>
                                 <p>Jet Services, Fastest and smartest way to transport your goods.</p>
                                 <div class="home-button">
-                                    <a href="{{asset('services')}}">Our Service</a>
-                                    <a href="{{asset('contact')}}">Contact us</a>
+                                <a href="{{asset('shipments')}}">Shipment Arrivals</a>
+                                <a href="{{asset('contact')}}">Contact us</a>
                                 </div>
                             </div>
                         </div>
@@ -81,8 +82,14 @@
         </div>
         <!--END HOME SLIDER AREA-->
     </header>
-    <!--END TOP AREA-->
 
+    <br>
+    <!--END TOP AREA-->
+    @if(session()->has('message'))
+                <div class="alert alert-success" role="alert">
+                   <strong>Success!</strong> {{ session()->get('message') }}
+                </div>
+    @endif
     <!--BLOG AREA-->
     <section class="blog-area gray-bg padding-top">
         <div class="container">
@@ -138,19 +145,27 @@
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="quote-form-area wow fadeIn">
                         <h3>Contact Us</h3>
-                        <form class="quote-form" action="#">
+                        <form class="quote-form" action="{{route('send.message')}}" method="post">
+                            @csrf
+                            @method('post')
                             <p class="width-full">
-                                <input type="text" name="name" id="name" placeholder="Your Name">
+                                <input type="text" name="name" id="name" placeholder="Your Name" value="{{old('name')}}">
+                                <div class="text-danger">{{$errors->first('name')}}</div>
                             </p>
                             <p class="width-full">
-                                <input type="email" name="email" id="email" placeholder="Email">
-                                <input class="pull-right" type="text" name="phone" id="phone" placeholder="Phone">
+                                <input type="email" name="email" id="email" placeholder="Email" value="{{old('email')}}">
+                                <div class="text-danger">{{$errors->first('email')}}</div>
+                            <p class="width-full">     
+                                <input type="text" name="phone" id="phone" placeholder="Phone" value="{{old('phone')}}">
+                                <div class="text-danger">{{$errors->first('phone')}}</div>
                             </p>
                             <p class="width-full">
-                                <input type="text" name="company" id="company" placeholder="Company">
+                                <input type="text" name="company" id="company" placeholder="Company" value="{{old('company')}}">
+                                <div class="text-danger">{{$errors->first('company')}}</div>
                             </p>
                             <p>
-                                <textarea name="message" id="message" cols="30" rows="4" placeholder="Your Message..."></textarea>
+                                <textarea name="message" id="message" cols="30" rows="4" placeholder="Your Message...">{{old('message')}}</textarea>
+                                <div class="text-danger">{{$errors->first('message')}}</div>
                             </p>
                             <button type="submit" name="submit">Send</button>
                         </form>
