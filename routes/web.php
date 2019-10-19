@@ -34,7 +34,7 @@ Route::get('/shipwithus', 'customerController@index');
 Route::post('/shipwithus', 'customerController@store')->name('register.insert');
 
 Auth::routes();
-
+Route::group(['middleware' => ['auth', 'isAdmin','verified']], function () { 
 Route::get('admin', 'AdminController@admin');
 Route::post('/admin', 'AdminController@store')->name('register.save');
 
@@ -49,12 +49,9 @@ Route::post('shipmentadmin', 'shipmentController@insert')->name('shipment.insert
 
 Route::get('shipmentedit/{id}/edit', 'shipmentController@edit')->name('shipment.edit');
 Route::patch('shipmentedit/{id}/edit', 'shipmentController@update')->name('shipment.update');
-
 Route::delete('shipmentadmin/{id}/edit', 'shipmentController@delete')->name('shipment.delete');
-
-
 Route::delete('admin/{id}/edit', 'AdminController@delete')->name('customer.delete');
-
+});
 // Route::get('admin', 'customerController@searchview')->name('customer.search');
 // Route::get('admin', 'customerController@search')->name('customer.search');
 
