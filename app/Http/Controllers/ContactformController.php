@@ -31,8 +31,8 @@ class ContactformController extends Controller
         // dd(request()->all());
         //Send Email
 
-        Mail::to('leadsjetservice@yahoo.com')->send(new ContactFormMail($data));
+        Mail::to('leadsjetservice@yahoo.com')->cc('contact@moregate.com.ng')->send(new ContactFormMail($data));
 
-        return back()->with('message', 'Thanks for Contacting US!');
+        return back()->with('message', 'Thanks for contacting us.');
     }
 }
