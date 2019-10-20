@@ -287,16 +287,16 @@ desired effect
     </div>
       <!-- register user btn -->
       <div class="col-md-2" style="margin-bottom:20px;">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_customer" name="register_id"><i class="fa fa-user"> Register new customer</i></button>
+        <button class="btn btn-success" data-toggle="modal" data-target="#add_customer" name="register_id"><i class="fa fa-user"> Register new customer</i></button>
       </div>
       <div class="col-md-2" style="margin-bottom:20px;">
-       <a href="{{asset('admin_allcustomers')}}"><button class="btn btn-primary" name="register_id"><i class="fa fa-table"> View all customer's table</i></button></a> 
+       <a href="{{asset('admin_allcustomers')}}"><button class="btn btn-warning" name="register_id"><i class="fa fa-table"> View all customer's table</i></button></a> 
       </div>
       <div class="col-md-2" style="margin-bottom:20px;">
-        <button class="btn btn-primary" name="register_id"><i class="fa fa-internet-explorer"> Open Website</i></button>
+       <a href="{{url('/')}}" target="_blank"><button class="btn btn-primary" name="register_id"><i class="fa fa-internet-explorer"> Open Website</i></button></a> 
       </div>
       <div class="col-md-6" style="margin-bottom:20px;">
-      <a href="{{asset('shipmentadmin')}}"><button class="btn btn-primary" name="register_id"><i class="fa fa-internet-table">View all Shipments</i></button></a>
+      <a href="{{asset('shipmentadmin')}}"><button class="btn btn-success" name="register_id"><i class="fa fa-internet-table">View all Shipments</i></button></a>
       </div>
 
     <!-- table -->
@@ -333,10 +333,12 @@ desired effect
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
                       <td>{{$item->phone}}</td>
-                      <td>{{$item->dateofbirth}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->dateofbirth))}}.</td>
                       <td>{{$item->company}}</td>
                       <td>
-                        <a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
+                        <a href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">
+                        <button class="btn btn-primary btn-cust">Edit</button> </a>
+                        
                             <form action="{{route('customer.delete', $item->id)}}" method="post" style="display:inline-block;">
                             @csrf
                             @method('DELETE')

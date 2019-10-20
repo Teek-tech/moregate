@@ -282,7 +282,7 @@ desired effect
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
                       <td>{{$item->phone}}</td>
-                      <td>{{$item->dateofbirth}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->dateofbirth))}}.</td>
                       <td>{{$item->company}}</td>
                       <td>
                         <a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>

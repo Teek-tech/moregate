@@ -118,7 +118,7 @@ desired effect
       </div>
 
       <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
+      <!-- <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="search" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -126,7 +126,7 @@ desired effect
               </button>
             </span>
         </div>
-      </form>
+      </form> -->
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
@@ -201,7 +201,7 @@ desired effect
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                         <div class="form-group" id="email-field">
                                                 <label for="Email">Details</label>
                                             <div class="form-input">
@@ -209,11 +209,7 @@ desired effect
                                             </div>
                                             <div class="text-danger">{{$errors->first('details')}}</div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="margin-top:30px;">
-                                        <div class="form-group">
-                                            <button type="submit" name="update" class="btn btn-primary">Submit</button>
-                                        </div>
+                                        <button type="submit" name="update" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -221,7 +217,7 @@ desired effect
                     </div>
                 </div>    
 
-                
+                <br><br>
         <!-- table -->
     <div class="col-xs-12">
           <div class="box">
@@ -229,7 +225,7 @@ desired effect
             <div class="box-header">
               <h3 class="box-title">All Shipment Arrivals</h3>
 
-              <div class="box-tools">
+              <!-- <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -237,7 +233,7 @@ desired effect
                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -251,9 +247,9 @@ desired effect
                   <tbody>
                   @foreach($shipPost as $item)
                     <tr>
-                      <td>{{$item->name}}</td>
-                      <td>{{$item->details}}</td>
-                      <td>{{$item->shipmentdate}}</td>
+                      <td>{{ucfirst($item->name)}}</td>
+                      <td>{{ucfirst($item->details)}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}.</td>
                       <td>
                         <a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
                             <form action="{{route('shipment.delete', $item->id)}}" method="post" style="display:inline-block;">
