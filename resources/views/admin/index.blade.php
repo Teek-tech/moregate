@@ -118,7 +118,7 @@ desired effect
       </div>
 
       <!-- search form (Optional) -->
-      <!-- <form action="" method="get" class="sidebar-form">
+      <form action="" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="search" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -126,7 +126,7 @@ desired effect
               </button>
           </span>
         </div>
-      </form> -->
+      </form>
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
@@ -303,11 +303,20 @@ desired effect
     <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">All registered customers</h3>
+            <div class="box-header">
+              <h3 class="box-title">All Registered Customers</h3>
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-                <table id="table_id" class="display">
+                <table class="table no-margin">
                   <thead>
                     <th>ID</th>
                     <th>Name</th>
@@ -327,8 +336,8 @@ desired effect
                       <td>{{$item->dateofbirth}}</td>
                       <td>{{$item->company}}</td>
                       <td>
-                        <span><a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id">Edit</a></span> 
-                            <form action="{{route('customer.delete', $item->id)}}" method="post">
+                        <a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
+                            <form action="{{route('customer.delete', $item->id)}}" method="post" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                               <button class="btn btn-danger btn-cust" type="submit">Delete</button>

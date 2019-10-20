@@ -183,7 +183,7 @@ desired effect
                             @csrf 
                             @method('post')
                                 <div class="row">
-                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
@@ -192,27 +192,25 @@ desired effect
                                             <div class="text-danger">{{$errors->first('name')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="email-field">
-                                                <label for="Email">Details</label>
-                                            <div class="form-input">
-                                                <input type="text" class="form-control" id="details" name="details" placeholder="Details of Shipment" value="{{old('details')}}">
-                                            </div>
-                                            <div class="text-danger">{{$errors->first('details')}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
                                                 <label for="phone-field">Shipment Arrival date</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="shipmentdate" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
+                                                <input type="date" class="form-control" id="shipmentdate" rows="70" cols="60" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="email-field">
+                                                <label for="Email">Details</label>
+                                            <div class="form-input">
+                                                <textarea class="form-control" id="details" name="details" placeholder="Details of Shipment">{{old('details')}}</textarea>
+                                            </div>
+                                            <div class="text-danger">{{$errors->first('details')}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="margin-top:30px;">
                                         <div class="form-group">
                                             <button type="submit" name="update" class="btn btn-primary">Submit</button>
                                         </div>
@@ -228,11 +226,22 @@ desired effect
     <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
+            <div class="box-header">
               <h3 class="box-title">All Shipment Arrivals</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-                <table id="table_id" class="display">
+                <table class="table no-margin">
                   <thead>
                     <th>Name</th>
                     <th>details</th>
@@ -246,8 +255,8 @@ desired effect
                       <td>{{$item->details}}</td>
                       <td>{{$item->shipmentdate}}</td>
                       <td>
-                        <span><a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id">Edit</a></span> 
-                            <form action="{{route('shipment.delete', $item->id)}}" method="post">
+                        <a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
+                            <form action="{{route('shipment.delete', $item->id)}}" method="post" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                               <button class="btn btn-danger btn-cust" type="submit">Delete</button>

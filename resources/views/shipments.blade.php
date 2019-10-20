@@ -67,21 +67,19 @@
     <section>
        <div class="section-padding">
           <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="area-title text-center">
-                            <h3>Our Arrivals</h3>
-                            <p>Date of all our Arrivals</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
+        <div class="col-xs-12">
           <div class="">
             <div class="">
-              <h3 class="area-title">All Shipments Arrivals</h3>
+                <div class="input-group input-group-sm" style="margin-bottom:20px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
             </div>
             <!-- /.box-header -->
             <div class="">
-                <table id="table_id" class="display">
+                <table class="table no-margin">
                   <thead>
                     <th>Name</th>
                     <th>Details</th>
