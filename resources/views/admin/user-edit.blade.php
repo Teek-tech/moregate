@@ -118,7 +118,7 @@ desired effect
       </div>
 
       <!-- search form (Optional) -->
-      <!-- <form action="#" method="get" class="sidebar-form">
+      <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="search" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -126,7 +126,7 @@ desired effect
               </button>
             </span>
         </div>
-      </form> -->
+      </form>
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
@@ -135,9 +135,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
-        <li  class="active"><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
-        <li><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
+        <li  class="active"><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -160,114 +158,52 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-    @if(session()->has('message'))
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ session()->get('message') }}
-      </div>
-    @endif
-    @if(session()->has('editmessage'))
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ session()->get('editmessage') }}
-      </div>
-    @endif
-    @if(session()->has('deletemessage'))
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ session()->get('deletemessage') }}
-      </div>
-    @endif
-  
-    <!-- EDIT CUSTOMER DETAIL -->
     <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="contact-form">
-                            <form action="{{route('shipment.insert')}}" method="post">
+                            <form action="{{route('admin.update', $editPost->id)}}" method="post">
                             @csrf 
-                            @method('post')
+                            @method('patch')
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name of shipment..." value="{{old('name')}}">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name..." value="{{$editPost->name}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('name')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="phone-field">
-                                                <label for="phone-field">Shipment Arrival date</label>
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="email-field">
+                                                <label for="Email">Email</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="shipmentdate" rows="70" cols="60" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{$editPost->email}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
+                                            <div class="text-danger">{{$errors->first('email')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="email-field">
-                                                <label for="Email">Details</label>
+                                    <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="phone-field">
+                                                <label for="phone-field">Status</label>
                                             <div class="form-input">
-                                                <textarea class="form-control" id="details" name="details" placeholder="Details of Shipment">{{old('details')}}</textarea>
+                                                <input type="text" class="form-control" id="status" name="status" placeholder="Status" value="{{$editPost->status}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('details')}}</div>
+                                            <div class="text-danger">{{$errors->first('status')}}</div>
                                         </div>
-                                        <button type="submit" name="update" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <button type="submit" name="update" class="btn btn-primary">Update</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>    
-
-                <br><br>
-        <!-- table -->
-    <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-            <div class="box-header">
-              <h3 class="box-title">All Shipment Arrivals</h3>
-
-              <!-- <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div> -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-                <table class="table no-margin">
-                  <thead>
-                    <th>Name</th>
-                    <th>details</th>
-                    <th>Date of Arrivals</th>
-                    <th>Action</th>
-                  </thead>
-                  <tbody>
-                  @foreach($shipPost as $item)
-                    <tr>
-                      <td>{{ucfirst($item->name)}}</td>
-                      <td>{{ucfirst($item->details)}}</td>
-                      <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}.</td>
-                      <td>
-                        <a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
-                            <form action="{{route('shipment.delete', $item->id)}}" method="post" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                              <button class="btn btn-danger btn-cust" type="submit">Delete</button>
-                            </form>
-                      </td>
-                    </tr>
-                  @endforeach  
-                </tbody>
-               </table>
-             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
     </section>
     <!-- /.content -->
   </div>

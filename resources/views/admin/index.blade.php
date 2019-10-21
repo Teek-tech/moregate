@@ -137,6 +137,7 @@ desired effect
         <li class="active"><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
         <li><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
+        <li><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

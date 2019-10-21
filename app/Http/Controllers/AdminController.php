@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Shipment;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -102,5 +103,43 @@ class AdminController extends Controller
         $getPost = Customer::all();
         $allcustomer = Customer::get()->count();
         return view('admin.index', compact('allcustomer', 'getPost'))->with('success', 'You are logged in!');
+    }
+
+    public function users()
+    {
+        $getAdmin = User::all();
+        return view('admin.user', compact('getAdmin'));
+    }
+
+    public function adminedit($id){
+        $editPost = User::findOrFail($id);
+        return view('admin.user-edit', compact('editPost'));
+    }
+
+    public function adminupdate(Request $request, $id){
+
+        $input = request()->validate([
+            'name'=> 'required|min:6',
+            'email'=> 'required|email|unique:Users,email,'.$id,
+            'status'=> 'required'
+        ]); 
+
+
+        $updatePost =  User::findOrFail($id);
+        $updatePost->name = $request->input('name');
+        $updatePost->email = $request->input('email');
+        $updatePost->status = $request->input('status');
+        $updatePost->save();
+    
+        return redirect('users')->with('editmessage', 'Details Updated!');
+    
+    }
+
+    public function admindelete(Request $request, $id){
+        $deletePost =  User::findOrFail($id);
+        $deletePost->delete();
+    
+        return back()->with('deletemessage','Customer deleted!');
+    
     }
 }

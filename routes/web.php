@@ -50,7 +50,13 @@ Route::post('shipmentadmin', 'shipmentController@insert')->name('shipment.insert
 Route::get('shipmentedit/{id}/edit', 'shipmentController@edit')->name('shipment.edit');
 Route::patch('shipmentedit/{id}/edit', 'shipmentController@update')->name('shipment.update');
 Route::delete('shipmentadmin/{id}/edit', 'shipmentController@delete')->name('shipment.delete');
+
 Route::delete('admin/{id}/edit', 'AdminController@delete')->name('customer.delete');
+
+Route::get('users', 'AdminController@users');
+Route::get('users/{id}/edit', 'AdminController@adminedit')->name('admin.edit');
+Route::patch('users/{id}/edit', 'AdminController@adminupdate')->name('admin.update');
+Route::delete('users/{id}/edit', 'AdminController@admindelete')->name('admin.delete');
 });
 // Route::get('admin', 'customerController@searchview')->name('customer.search');
 // Route::get('admin', 'customerController@search')->name('customer.search');

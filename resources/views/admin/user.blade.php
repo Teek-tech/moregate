@@ -135,9 +135,9 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li  class="active" ><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
+        <li><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
         <li><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
-        <li><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
+        <li  class="active"><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -158,112 +158,25 @@ desired effect
       </ol>
     </section>
 
-     <!-- add users Modal -->
-    <div class="modal fade" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalCenterTitle">ADD NEW CUSTOMER</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="{{route('register.save')}}" method="post">
-            @csrf 
-            @method('post')
-              <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                  <div class="form-group" id="name-field">
-                    <label for="Name">Name</label>
-                  <div class="form-input">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name.." value="{{old('name')}}">
-                  </div>
-                  <div class="text-danger">{{$errors->first('name')}}</div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                <div class="form-group" id="email-field">
-                  <label for="Email">Email</label>
-                  <div class="form-input">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email.." value="{{old('email')}}">
-                    </div>
-                    <div class="text-danger">{{$errors->first('email')}}</div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                  <div class="form-group" id="phone-field">
-                    <label for="phone-field">Phone Number</label>
-                    <div class="form-input">
-                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone..." value="{{old('phone')}}">
-                    </div>
-                    <div class="text-danger">{{$errors->first('phone')}}</div>
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                <div class="form-group" id="phone-field">
-                  <label for="Date of birth">Date of birth</label>
-                    <div class="form-input">
-                      <input type="date" class="form-control" id="dateofbirth" name="dateofbirth" placeholder="date of birth.." value="{{old('dateofbirth')}}">
-                    </div>
-                    <div class="text-danger">{{$errors->first('dateofbirth')}}</div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                  <div class="form-group" id="message-field">
-                      <label for="Company">Company</label>
-                      <div class="form-input">
-                       <input type="text" class="form-control" id="company" name="company" placeholder="Company name.." value="{{old('company')}}">
-                      </div>
-                      <div class="text-danger">{{$errors->first('company')}}</div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="submit" class="btn btn-primary">Add Customer</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
     <!-- Main content -->
     <section class="content container-fluid">
-    @if(session()->has('message'))
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ session()->get('message') }}
-      </div>
-    @endif
-    <!-- register user btn -->
-    <div class="col-md-12" style="margin-bottom:20px;">
-    <button class="btn btn-primary" data-toggle="modal" data-target="#add_customer" name="register_id">Register new customer</button>
-    </div>
-
-    
+  
+    <!-- EDIT CUSTOMER DETAIL -->
     <!-- table -->
     <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
             <div class="box-header">
-              <h3 class="box-title">All Registered Customers</h3>
-
+              <h3 class="box-title">All Registered Adminstrators</h3>
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
                   <div class="input-group-btn">
                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                   </div>
                 </div>
               </div>
-            </div>       
+            </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table no-margin">
@@ -271,28 +184,30 @@ desired effect
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>Date of birth</th>
-                    <th>Company</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </thead>
                   <tbody>
-                  @foreach($getPost as $item)
+                  @foreach($getAdmin as $item)
                     <tr>
                       <td>{{$item->id}}</td>
                       <td>{{$item->name}}</td>
                       <td>{{$item->email}}</td>
-                      <td>{{$item->phone}}</td>
-                      <td>{{date("jS F, Y", strtotime($item->dateofbirth))}}.</td>
-                      <td>{{$item->company}}</td>
+                      <td>{{$item->status}}</td>
+                      @if(Auth::user()->email == 'chrisstarkmira15@gmail.com')
                       <td>
-                        <a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
-                            <form action="{{route('customer.delete', $item->id)}}" method="post" style="display:inline-block;">
+                        <a href="{{route('admin.edit', $item->id )}}" name="edit_id" style="display:inline-block;">
+                        <button class="btn btn-primary btn-cust">Edit</button> </a>
+                        
+                            <form action="{{route('admin.delete', $item->id)}}" method="post" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                               <button class="btn btn-danger btn-cust" type="submit">Delete</button>
-                            </form>
+                            </form>   
                       </td>
+                      @else
+                      <td class="alert-success text-center">Administrators</td>
+                      @endif 
                     </tr>
                   @endforeach  
                 </tbody>
@@ -301,7 +216,8 @@ desired effect
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
+        </div>   
+
     </section>
     <!-- /.content -->
   </div>
@@ -314,7 +230,7 @@ desired effect
       Moregate Adminstration Platform
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="#">Moregate</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019  <a href="#">Moregate</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
