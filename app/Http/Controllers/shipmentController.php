@@ -35,13 +35,15 @@ class shipmentController extends Controller
         
         $input = request()->validate([
             'name'=> 'required',
-            'details'=> 'required',
+            'pmonth'=> 'required',
+            'pdate'=> 'required',
             'shipmentdate'=> 'required',
         ]); 
 
         $savePost = new Shipment;
         $savePost->name = $request->input('name');
-        $savePost->details = $request->input('details');
+        $savePost->pmonth = $request->input('pmonth');
+        $savePost->pdate = $request->input('pdate');
         $savePost->shipmentdate = $request->input('shipmentdate');
         $savePost->save();
 
@@ -58,14 +60,16 @@ class shipmentController extends Controller
 
         $input = request()->validate([
             'name'=> 'required',
-            'details'=> 'required',
+            'pmonth'=> 'required',
+            'pdate'=> 'required',
             'shipmentdate'=> 'required',
         ]); 
 
 
         $updatePost =  Shipment::findOrFail($id);
         $updatePost->name = $request->input('name');
-        $updatePost->details = $request->input('details');
+        $updatePost->pmonth = $request->input('pmonth');
+        $updatePost->pdate = $request->input('pdate');
         $updatePost->shipmentdate = $request->input('shipmentdate');
         $updatePost->save();
     

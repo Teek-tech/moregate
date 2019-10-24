@@ -23,7 +23,7 @@ class customerController extends Controller
       
       $input = request()->validate([
         'name'=> 'required|min:6',
-        'email'=> 'required|email|unique:Customers,email',
+        'email'=> 'required|email|unique:customers,email',
         'phone'=> 'required',
         'dateofbirth'=> 'required',
         'company'=> 'required'

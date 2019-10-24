@@ -43,105 +43,12 @@ desired effect
 
   <!-- Main Header -->
   <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>M</b>AD</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Moregate</b>Admin</span>
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{Auth::user()->name}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="img-circle" alt="User Image">
-
-                <p>
-                {{Auth::user()->name}} - Moregate Staff
-                <small>Moregate Admin Platform</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-center">
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" 
-                    class="btn btn-default btn-flat">{{ __('Logout') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                  </form>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-        </ul>
-      </div>
-    </nav>
+  @include('layouts.nav-admin')
+   
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
-
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../moregate/images/admin/userimg/user_image2.jpeg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>{{Auth::user()->name}}</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
-      <!-- search form (Optional) -->
-      <!-- <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="search" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-        </div>
-      </form> -->
-      <!-- /.search form -->
-
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu" data-widget="tree" style="margin-top:10px;">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="{{asset('/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li><a href="{{asset('/admin_allcustomers')}}"><i class="fa fa-users"></i> <span>All Customers</span></a></li>
-        <li  class="active"><a href="{{asset('/shipmentadmin')}}"><i class="fa fa-table"></i> <span>Shipment Arrivals</span></a></li>
-        <li><a href="{{asset('/users')}}"><i class="fa fa-table"></i> <span>All Administrators</span></a></li>
-      </ul>
-      <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
+  @include('layouts.sidebar-admin')
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -202,16 +109,27 @@ desired effect
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="email-field">
-                                                <label for="Email">Details</label>
+                                                <label for="Email">P-Month</label>
                                             <div class="form-input">
-                                                <textarea class="form-control" id="details" name="details" placeholder="Details of Shipment">{{old('details')}}</textarea>
+                                                <input type="text" class="form-control" id="pmonth" name="pmonth" placeholder="P-month" value="{{old('pmonth')}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('details')}}</div>
+                                            <div class="text-danger">{{$errors->first('pmonth')}}</div>
                                         </div>
-                                        <button type="submit" name="update" class="btn btn-primary">Submit</button>
                                     </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="email-field">
+                                                <label for="Email">Packing list date</label>
+                                            <div class="form-input">
+                                                <input type="date" class="form-control" id="pdate" name="pdate" placeholder="Pcking list date" value="{{old('pdate')}}">
+                                            </div>
+                                            <div class="text-danger">{{$errors->first('pdate')}}</div>
+                                        </div>
+                                    </div>
+                                      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                        <button type="submit" name="update" class="btn btn-primary">Submit</button>
+                                      </div>
                                 </div>
                             </form>
                         </div>
@@ -240,8 +158,9 @@ desired effect
             <div class="box-body table-responsive no-padding">
                 <table class="table no-margin">
                   <thead>
-                    <th>Name</th>
-                    <th>details</th>
+                    <th>Container name</th>
+                    <th>P-month</th>
+                    <th>Packing list date</th>
                     <th>Date of Arrivals</th>
                     <th>Action</th>
                   </thead>
@@ -249,7 +168,8 @@ desired effect
                   @foreach($shipPost as $item)
                     <tr>
                       <td>{{ucfirst($item->name)}}</td>
-                      <td>{{ucfirst($item->details)}}</td>
+                      <td>{{ucfirst($item->pmonth)}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->pdate))}}.</td>
                       <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}.</td>
                       <td>
                         <a class="btn btn-primary btn-cust" href="{{route('shipment.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
