@@ -23,28 +23,28 @@ Route::get('services', function () {
 });
 
 
-Route::get('contact', 'ContactformController@create');
+Route::get('contact', 'ContactformController@create')->name('contact');
 Route::post('contact', 'ContactformController@send')->name('send.message');
 
-Route::get('shipments', 'shipmentController@arrival');
+Route::get('shipments', 'shipmentController@arrival')->name('shipments');
 
 
 
-Route::get('/shipwithus', 'customerController@index');
+Route::get('/shipwithus', 'customerController@index')->name('shipwithus');
 Route::post('/shipwithus', 'customerController@store')->name('register.insert');
 
 Auth::routes();
 Route::group(['middleware' => ['auth', 'isAdmin','verified']], function () { 
-Route::get('admin', 'AdminController@admin');
+Route::get('admin', 'AdminController@admin')->name('admin.index');
 Route::post('/admin', 'AdminController@store')->name('register.save');
 
-Route::get('admin_allcustomers', 'AdminController@adminall');
-Route::post('admin_allcustomers', 'AdminController@store')->name('register.save');
+Route::get('admin_allcustomers', 'AdminController@adminall')->name('admin.allcustomers');
+Route::post('admin_allcustomers', 'AdminController@store')->name('register.store');
 
 Route::get('admin_editcustomer/{id}/edit', 'AdminController@edit')->name('customer.edit');
 Route::patch('admin_editcustomer/{id}/edit', 'AdminController@update')->name('customer.update');
 
-Route::get('shipmentadmin', 'shipmentController@adminshipment');
+Route::get('shipmentadmin', 'shipmentController@adminshipment')->name('admin.shipments');
 Route::post('shipmentadmin', 'shipmentController@insert')->name('shipment.insert');
 
 Route::get('shipmentedit/{id}/edit', 'shipmentController@edit')->name('shipment.edit');
@@ -53,16 +53,11 @@ Route::delete('shipmentadmin/{id}/edit', 'shipmentController@delete')->name('shi
 
 Route::delete('admin/{id}/edit', 'AdminController@delete')->name('customer.delete');
 
-Route::get('users', 'AdminController@users');
+Route::get('users', 'AdminController@users')->name('admin.users');
 Route::get('users/{id}/edit', 'AdminController@adminedit')->name('admin.edit');
 Route::patch('users/{id}/edit', 'AdminController@adminupdate')->name('admin.update');
 Route::delete('users/{id}/edit', 'AdminController@admindelete')->name('admin.delete');
 });
-// Route::get('admin', 'customerController@searchview')->name('customer.search');
-// Route::get('admin', 'customerController@search')->name('customer.search');
-
-// Route::get('admin_allcustomers', 'customerController@search')->name('customer.search');
-
 
 Route::get('/home', 'AdminController@index');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

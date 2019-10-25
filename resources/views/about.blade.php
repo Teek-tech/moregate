@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
                     <div class="about-left-content-area wow fadeIn">
-                        <img src="moregate/images/about/about/about-cargo.png" alt="">
+                        <img src="{{asset('moregate/images/about/about/about-cargo.png')}}" alt="">
                         <h2>OUR MISSION</h2>
                         <p>
                             To promote effective, efficient and transparent shipment services to meet
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="about-history-content">
-                       <img src="moregate/images/about/about/truck.png" alt="truck" height="370px" width="370px">
+                       <img src="{{asset('moregate/images/about/about/truck.png')}}" alt="truck" height="370px" width="370px">
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="faqs-left-img">
-                        <img src="moregate/images/about/about/about-details.jpg" alt="">
+                        <img src="{{asset('moregate/images/about/about/about-details.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
@@ -194,34 +194,34 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="client-list">
                         <div class="single-client">
-                            <img src="moregate/images/about/client/1.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/1.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/2.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/2.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/3.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/3.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/4.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/4.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/5.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/5.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/1.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/1.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/2.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/2.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/3.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/3.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/4.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/4.jpg')}}" alt="">
                         </div>
                         <div class="single-client">
-                            <img src="moregate/images/about/client/5.jpg" alt="">
+                            <img src="{{asset('moregate/images/home/client/5.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>

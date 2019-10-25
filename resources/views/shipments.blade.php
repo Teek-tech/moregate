@@ -70,27 +70,29 @@
         <div class="col-xs-12">
           <div class="">
             <div class="">
-                <div class="input-group input-group-sm" style="margin-bottom:20px;">
+                <!-- <div class="input-group input-group-sm" style="margin-bottom:20px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
                   <div class="input-group-btn">
                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                   </div>
-                </div>
+                </div> -->
             </div>
             <!-- /.box-header -->
             <div class="">
                 <table class="table no-margin">
                   <thead>
-                    <th>Name</th>
-                    <th>Details</th>
+                    <th>Container name</th>
+                    <th>P-month</th>
+                    <th>Packing list date</th>
                     <th>Date of Arrivals</th>
                   </thead>
                   <tbody>
                   @foreach($shipPost as $item)
                     <tr>
                       <td>{{$item->name}}</td>
-                      <td>{{$item->details}}</td>
-                      <td>{{$item->shipmentdate}}</td>
+                      <td>{{$item->pmonth}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->pdate))}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}</td>
                     </tr>
                   @endforeach  
                 </tbody>

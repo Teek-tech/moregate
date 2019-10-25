@@ -1,5 +1,5 @@
 <!--====== FAVICON ICON =======-->
-<link rel="shortcut icon" type="image/ico" href="moregate/images/favicon.png"/>
+<link rel="shortcut icon" type="image/ico" href="{{asset('moregate/images/morefavicon.png')}}"/>
     
     <!--====== STYLESHEETS ======-->
     <link rel="stylesheet" href="{{asset('moregate/css/normalize.css')}}">

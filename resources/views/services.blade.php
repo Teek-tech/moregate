@@ -68,7 +68,7 @@
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
                             <div class="blog-image">
-                                <img src="moregate/images/services/blog/blog_4.jpg" alt="">
+                                <img src="{{asset('moregate/images/services/blog/blog_4.jpg')}}" alt="">
                             </div>
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-home"></i></a></div>
@@ -83,7 +83,7 @@
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="single-blog wow fadeInUp" data-wow-delay="0.3s">
                             <div class="blog-image">
-                                <img src="moregate/images/services/blog/blog_1.jpg" alt="">
+                                <img src="{{asset('moregate/images/services/blog/blog_1.jpg')}}" alt="">
                             </div>
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
@@ -96,7 +96,7 @@
                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                         <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
                             <div class="blog-image">
-                                <img src="moregate/images/services/blog/blog_3.jpg" alt="">
+                                <img src="{{asset('moregate/images/services/blog/blog_3.jpg')}}" alt="">
                             </div>
                             <div class="blog-details text-center">
                                 <div class="blog-meta"><a href="#"><i class="fa fa-truck"></i></a></div>

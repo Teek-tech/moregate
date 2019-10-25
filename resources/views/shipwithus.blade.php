@@ -150,7 +150,7 @@
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                         <div class="contact-image">
-                          <img src="moregate/images/register/reg_image.png" alt="" srcset="">
+                          <img src="{{asset('moregate/images/register/reg_image.png')}}" alt="" srcset="">
                         </div>
                     </div>
                 </div>
