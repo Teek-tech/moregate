@@ -50,7 +50,7 @@ class AdminController extends Controller
       
       $input = request()->validate([
         'name'=> 'required|min:6',
-        'email'=> 'required|email|unique:Customers,email',
+        'email'=> 'required|email|unique:customers,email',
         'phone'=> 'required',
         'dateofbirth'=> 'required',
         'company'=> 'required'
@@ -71,7 +71,7 @@ class AdminController extends Controller
 
         $input = request()->validate([
             'name'=> 'required|min:6',
-            'email'=> 'required|email|unique:Customers,email,'.$id,
+            'email'=> 'required|email|unique:customers,email,'.$id,
             'phone'=> 'required',
             'dateofbirth'=> 'required',
             'company'=> 'required'
@@ -120,7 +120,7 @@ class AdminController extends Controller
 
         $input = request()->validate([
             'name'=> 'required|min:6',
-            'email'=> 'required|email|unique:Users,email,'.$id,
+            'email'=> 'required|email|unique:users,email,'.$id,
             'status'=> 'required'
         ]); 
 
