@@ -128,7 +128,7 @@
                         <div class="blog-details text-center">
                             <div class="blog-meta"><a href="#"><i class="fa fa-truck"></i></a></div>
                             <h3>SPEEDY AND SAFE DELIVERY OF SHIPMENTS </h3>
-                            <p>with our team of professionals, we deliver any consignments promptly and safely to meet the client’s expected arrival time. (EAT)</p>
+                            <p>With our team of professionals, we deliver any consignments promptly and safely to meet the client’s expected arrival time. (EAT)</p>
                             <a href="{{asset('services')}}" class="read-more">Read More</a>
                         </div>
                     </div>
@@ -255,15 +255,15 @@
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 no-padding">
                                     <div class="single-service-two border-left border-right border-bottom">
                                         <div class="service-icon-two"><i class="fa fa-cog"></i></div>
-                                        <h4>consulting</h4>
+                                        <h4>Consulting</h4>
                                         <p>Financial advisory services</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 no-padding">
                                     <div class="single-service-two border-right border-bottom">
                                         <div class="service-icon-two"><i class="fa fa-bicycle"></i></div>
-                                        <h4>fast delevary</h4>
-                                        <p>speedy and safe delivery of shipment</p>
+                                        <h4>Fast delivery</h4>
+                                        <p>Speedy and safe delivery of shipment</p>
                                     </div>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                         <div class="single-promo">
                             <div class="promo-icon"><i class="fa fa-bicycle"></i></div>
                             <div class="promo-details">
-                                <h3>Fast Delevery</h3>
+                                <h3>Fast Delivery</h3>
                                 <p>Prompt delivery.</p>
                             </div>
                         </div>

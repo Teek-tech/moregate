@@ -79,18 +79,17 @@
             </div>
             <!-- /.box-header -->
             <div class="">
-                <table class="table no-margin">
+                <table class="table no-margin" id="table_id">
                   <thead>
-                    <th>Container name</th>
-                    <th>P-month</th>
+                    <th>S/N</th>
                     <th>Packing list date</th>
                     <th>Date of Arrivals</th>
                   </thead>
                   <tbody>
+                  @php $sn = 1; @endphp
                   @foreach($shipPost as $item)
                     <tr>
-                      <td>{{$item->name}}</td>
-                      <td>{{$item->pmonth}}</td>
+                    <td>{{$sn++}}</td>
                       <td>{{date("jS F, Y", strtotime($item->pdate))}}</td>
                       <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}</td>
                     </tr>

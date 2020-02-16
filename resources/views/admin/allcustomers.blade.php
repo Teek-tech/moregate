@@ -84,7 +84,7 @@ desired effect
                   <div class="form-group" id="name-field">
                     <label for="Name">Name</label>
                   <div class="form-input">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name.." value="{{old('name')}}">
+                    <input type="text" class="form-control" id="name" name="name" required placeholder="Name.." value="{{old('name')}}">
                   </div>
                   <div class="text-danger">{{$errors->first('name')}}</div>
                 </div>
@@ -93,7 +93,7 @@ desired effect
                 <div class="form-group" id="email-field">
                   <label for="Email">Email</label>
                   <div class="form-input">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email.." value="{{old('email')}}">
+                    <input type="email" class="form-control" id="email" required name="email" placeholder="Email.." value="{{old('email')}}">
                     </div>
                     <div class="text-danger">{{$errors->first('email')}}</div>
                   </div>
@@ -104,7 +104,7 @@ desired effect
                   <div class="form-group" id="phone-field">
                     <label for="phone-field">Phone Number</label>
                     <div class="form-input">
-                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone..." value="{{old('phone')}}">
+                     <input type="text" class="form-control" id="phone" required name="phone" placeholder="Phone..." value="{{old('phone')}}">
                     </div>
                     <div class="text-danger">{{$errors->first('phone')}}</div>
                   </div>
@@ -113,7 +113,7 @@ desired effect
                 <div class="form-group" id="phone-field">
                   <label for="Date of birth">Date of birth</label>
                     <div class="form-input">
-                      <input type="date" class="form-control" id="dateofbirth" name="dateofbirth" placeholder="date of birth.." value="{{old('dateofbirth')}}">
+                      <input type="date" class="form-control" id="dateofbirth" required name="dateofbirth" placeholder="date of birth.." value="{{old('dateofbirth')}}">
                     </div>
                     <div class="text-danger">{{$errors->first('dateofbirth')}}</div>
                   </div>
@@ -124,7 +124,7 @@ desired effect
                   <div class="form-group" id="message-field">
                       <label for="Company">Company</label>
                       <div class="form-input">
-                       <input type="text" class="form-control" id="company" name="company" placeholder="Company name.." value="{{old('company')}}">
+                       <input type="text" class="form-control" id="company" required name="company" placeholder="Company name.." value="{{old('company')}}">
                       </div>
                       <div class="text-danger">{{$errors->first('company')}}</div>
                   </div>
@@ -143,9 +143,9 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-    @if(session()->has('message'))
+    @if(session()->has('success'))
       <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ session()->get('message') }}
+        <strong>Success!</strong> {{ session()->get('success') }}
       </div>
     @endif
     <!-- register user btn -->
@@ -177,21 +177,29 @@ desired effect
                   <thead>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Track-ID</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Date of birth</th>
                     <th>Company</th>
+                    <th>SMS</th>
                     <th>Action</th>
                   </thead>
-                  <tbody>
+                  <tbody> @php $sn = 1; @endphp
                   @foreach($getPost as $item)
                     <tr>
-                      <td>{{$item->id}}</td>
+                      <td>{{$sn++}}</td>
                       <td>{{$item->name}}</td>
+                      <td>{{$item->track_id}}</td>
                       <td>{{$item->email}}</td>
                       <td>{{$item->phone}}</td>
                       <td>{{date("jS F, Y", strtotime($item->dateofbirth))}}.</td>
                       <td>{{$item->company}}</td>
+                      @if($item->status == TRUE)
+                      <td><span style="background-color:green; border-radius:10px; color:#ffffff; padding-left:5px; padding-right:5px;">success</span></td>
+                      @else
+                      <td><span style="background-color:red; border-radius:10px; color:#ffffff; padding-left:5px; padding-right:5px;">failed</span></td>
+                      @endif
                       <td>
                         <a class="btn btn-primary btn-cust" href="{{route('customer.edit', $item->id )}}" name="edit_id" style="display:inline-block;">Edit</a>
                             <form action="{{route('customer.delete', $item->id)}}" method="post" style="display:inline-block;">

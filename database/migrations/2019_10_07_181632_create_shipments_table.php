@@ -15,10 +15,10 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('pmonth');
-            $table->date('shipmentdate');
+            $table->string('cargo_name');
             $table->date('pdate');
+            $table->date('shipmentdate');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

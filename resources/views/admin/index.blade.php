@@ -257,6 +257,7 @@ desired effect
                   @endforeach  
                 </tbody>
                </table>
+               {{$getPost->render()}}
              </div>
             <!-- /.box-body -->
           </div>

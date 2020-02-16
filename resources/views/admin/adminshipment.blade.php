@@ -18,26 +18,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -91,38 +71,29 @@ desired effect
                             @csrf 
                             @method('post')
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name of shipment..." value="{{old('name')}}">
+                                                <input type="text" class="form-control" required id="cargo_name" name="cargo_name" placeholder="Name of cargo..." value="{{old('cargo_name')}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('name')}}</div>
+                                            <div class="text-danger">{{$errors->first('cargo_name')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
                                                 <label for="phone-field">Shipment Arrival date</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="shipmentdate" rows="70" cols="60" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
+                                                <input type="date" class="form-control" required id="shipmentdate" rows="70" cols="60" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="email-field">
-                                                <label for="Email">P-Month</label>
-                                            <div class="form-input">
-                                                <input type="text" class="form-control" id="pmonth" name="pmonth" placeholder="P-month" value="{{old('pmonth')}}">
-                                            </div>
-                                            <div class="text-danger">{{$errors->first('pmonth')}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                         <div class="form-group" id="email-field">
                                                 <label for="Email">Packing list date</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="pdate" name="pdate" placeholder="Pcking list date" value="{{old('pdate')}}">
+                                                <input type="date" class="form-control" required id="pdate" name="pdate" placeholder="Pcking list date" value="{{old('pdate')}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('pdate')}}</div>
                                         </div>
@@ -158,8 +129,7 @@ desired effect
             <div class="box-body table-responsive no-padding">
                 <table class="table no-margin">
                   <thead>
-                    <th>Container name</th>
-                    <th>P-month</th>
+                    <th>Cargo Name</th>
                     <th>Packing list date</th>
                     <th>Date of Arrivals</th>
                     <th>Action</th>
@@ -167,8 +137,7 @@ desired effect
                   <tbody>
                   @foreach($shipPost as $item)
                     <tr>
-                      <td>{{ucfirst($item->name)}}</td>
-                      <td>{{ucfirst($item->pmonth)}}</td>
+                      <td>{{ucfirst($item->cargo_name)}}</td>
                       <td>{{date("jS F, Y", strtotime($item->pdate))}}.</td>
                       <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}.</td>
                       <td>
@@ -183,6 +152,7 @@ desired effect
                   @endforeach  
                 </tbody>
                </table>
+               {{$shipPost->render()}}
              </div>
             <!-- /.box-body -->
           </div>

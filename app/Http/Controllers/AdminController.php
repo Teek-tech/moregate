@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Shipment;
 use App\User;
+use GuzzleHttp\Client;
 
 class AdminController extends Controller
 {
@@ -25,7 +26,7 @@ class AdminController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function admin(){
-         $getPost = Customer::all();
+         $getPost = Customer::orderBy('updated_at', 'DESC')->paginate(10);
          $allcustomer = Customer::get()->count();
          $allshipment = Shipment::get()->count();
          return view('admin.index',  compact('getPost', 'allcustomer', 'allshipment'));
@@ -40,25 +41,45 @@ class AdminController extends Controller
     
 
     public function store(Request $request){ 
-
+        $input = request()->validate([
+            'name'=> 'required|min:3',
+            'email'=> 'required|email|unique:customers,email',
+            'phone'=> 'required',
+            'dateofbirth'=> 'required',
+            'company'=> 'required'
+         ]); 
+         //generate track ID
+         do {
+            $token = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 8);  //mt_rand(100000, 999999);
+        } while (Customer::where('track_id', $token)->exists());
+    
       $savePost = new Customer;
-      $savePost->name = $request->input('name');
-      $savePost->email = $request->input('email');
-      $savePost->phone = $request->input('phone');
-      $savePost->dateofbirth = $request->input('dateofbirth');
-      $savePost->company = $request->input('company');
-      
-      $input = request()->validate([
-        'name'=> 'required|min:6',
-        'email'=> 'required|email|unique:customers,email',
-        'phone'=> 'required',
-        'dateofbirth'=> 'required',
-        'company'=> 'required'
-     ]); 
+      $savePost->name = request('name');
+      $savePost->email = request('email');
+      $savePost->phone = request('phone');
+      $savePost->dateofbirth = request('dateofbirth');
+      $savePost->company = request('company');
+     
+    
+      //Send sms
+    $username = "tochukwuodeme@gmail.com";
+    $apikey = "477dd6cbd5d8171d6141956016dcb846a392ba59";
+    $sender = "JET SERVICE";
+    $messagetextHead = 'Hi '.ucfirst($savePost->name).",";
+    $messagetextbody = 'Jet Service has added you into our customer database. You can track your goods with your ID on our website';
+    $messagetextFooter = 'Your fastest partner';
+    $recipients = $savePost->phone;
+    //$codemsg = 'Your new ID is: ';
+    $getcode ='Your new ID is: '. $token;
 
-
-      $savePost->save();
-      return back()->with('message', 'Registration Complete!');
+    $client = new Client();
+    $res = $client->get("http://api.ebulksms.com:8080/sendsms?username=".$username."&apikey=".$apikey."&sender=".$sender."&messagetext=".$messagetextHead."%0a%0a".$messagetextbody."%0a%0a".$getcode."%0a%0a".$messagetextFooter."!&flash=0&recipients=".$recipients);
+    if($res){
+        $savePost->status = TRUE;
+        $savePost->track_id = $token;
+    }
+    $savePost->save();
+    return back()->with('success', 'Registration Complete and Sms sent!');
 
     }
 
@@ -79,11 +100,11 @@ class AdminController extends Controller
 
 
         $updatePost =  Customer::findOrFail($id);
-        $updatePost->name = $request->input('name');
-        $updatePost->email = $request->input('email');
-        $updatePost->phone = $request->input('phone');
-        $updatePost->dateofbirth = $request->input('dateofbirth');
-        $updatePost->company = $request->input('company');
+        $updatePost->name = request('name');
+        $updatePost->email = request('email');
+        $updatePost->phone = request('phone');
+        $updatePost->dateofbirth = request('dateofbirth');
+        $updatePost->company = request('company');
         $updatePost->save();
     
         return redirect('admin')->with('editmessage', 'Details Updated!');

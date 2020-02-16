@@ -28,9 +28,8 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="footer-copyright wow fadeIn">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Designed by | Teek-Tech</p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Designed by <a href="https://www.facebook.com/tochukwu.tkay">Teek-Tech</a></p>
+                       
                     </div>
                 </div>
             </div>

@@ -86,13 +86,13 @@ desired effect
                             @csrf 
                             @method('patch')
                                 <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name of shipment..." value="{{$editPost->name}}">
+                                                <input type="text" class="form-control" id="cargo_name" name="cargo_name" placeholder="Name of shipment..." value="{{$editPost->name}}">
                                             </div>
-                                            <div class="text-danger">{{$errors->first('name')}}</div>
+                                            <div class="text-danger">{{$errors->first('cargo_name')}}</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
@@ -102,15 +102,6 @@ desired effect
                                                 <input type="date" class="form-control" id="shipmentdate" name="shipmentdate" placeholder="Date of Arrival" value="{{$editPost->shipmentdate}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                        <div class="form-group" id="email-field">
-                                                <label for="Email">P-month</label>
-                                            <div class="form-input">
-                                                <input type="text" class="form-control" id="pmonth" name="pmonth" placeholder="P-month" value="{{$editPost->pmonth}}">
-                                            </div>
-                                            <div class="text-danger">{{$errors->first('pmonth')}}</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">

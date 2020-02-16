@@ -18,15 +18,15 @@ class shipmentController extends Controller
     }
 
     public function arrival(){
-        $shipPost = Shipment::all();
+        $shipPost = Shipment::orderBy('updated_at', 'DESC')->get();
         // $shipPost -> Shipment::setTable('Shipment')->latest('shipmentdate')->first();        
-        $getPost = Customer::all();
+        //$getPost = Customer::all();
         // $allcustomer = Customer::get()->count();
-        return view('shipments', compact('getPost', 'shipPost'));
+        return view('shipments', compact('shipPost'));
     }
 
     public function adminshipment(){
-        $shipPost = Shipment::all();
+        $shipPost = Shipment::orderBy('updated_at', 'DESC')->paginate(10);
         return view('admin.adminshipment', compact('shipPost'));
     }
 
@@ -34,17 +34,15 @@ class shipmentController extends Controller
 
         
         $input = request()->validate([
-            'name'=> 'required',
-            'pmonth'=> 'required',
+            'cargo_name'=> 'required',
             'pdate'=> 'required',
             'shipmentdate'=> 'required',
         ]); 
 
         $savePost = new Shipment;
-        $savePost->name = $request->input('name');
-        $savePost->pmonth = $request->input('pmonth');
-        $savePost->pdate = $request->input('pdate');
-        $savePost->shipmentdate = $request->input('shipmentdate');
+        $savePost->cargo_name = request('cargo_name');
+        $savePost->pdate = request('pdate');
+        $savePost->shipmentdate = request('shipmentdate');
         $savePost->save();
 
 
@@ -59,18 +57,16 @@ class shipmentController extends Controller
     public function update(Request $request, $id){
 
         $input = request()->validate([
-            'name'=> 'required',
+            'cargo_name'=> 'required',
             'pmonth'=> 'required',
-            'pdate'=> 'required',
             'shipmentdate'=> 'required',
         ]); 
 
 
         $updatePost =  Shipment::findOrFail($id);
-        $updatePost->name = $request->input('name');
-        $updatePost->pmonth = $request->input('pmonth');
-        $updatePost->pdate = $request->input('pdate');
-        $updatePost->shipmentdate = $request->input('shipmentdate');
+        $updatePost->cargo_name = request('cargo_name');
+        $updatePost->pdate = request('pdate');
+        $updatePost->shipmentdate = request('shipmentdate');
         $updatePost->save();
     
         return redirect('shipmentadmin')->with('editmessage', 'Details Updated!');
