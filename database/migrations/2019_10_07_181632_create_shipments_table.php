@@ -15,6 +15,7 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('category');
             $table->string('cargo_name');
             $table->date('pdate');
             $table->date('shipmentdate');

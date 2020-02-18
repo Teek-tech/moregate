@@ -82,6 +82,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
+                                                <label for="phone-field">From</label>
+                                            <div class="form-input">
+                                               <select name="category" class="form-control" required>
+                                               <option value="guangzhou">Guangzhou</option>
+                                               <option value="shoaxing">Shoaxing</option>
+                                               </select>
+                                            </div>
+                                            <div class="text-danger">{{$errors->first('category')}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="phone-field">
                                                 <label for="phone-field">Shipment Arrival date</label>
                                             <div class="form-input">
                                                 <input type="date" class="form-control" required id="shipmentdate" rows="70" cols="60" name="shipmentdate" placeholder="Date of Arrival" value="{{old('shipmentdate')}}">
@@ -89,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                                         <div class="form-group" id="email-field">
                                                 <label for="Email">Packing list date</label>
                                             <div class="form-input">
@@ -129,6 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="box-body table-responsive no-padding">
                 <table class="table no-margin">
                   <thead>
+                    <th>From</th>
                     <th>Cargo Name</th>
                     <th>Packing list date</th>
                     <th>Date of Arrivals</th>
@@ -137,6 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                   @foreach($shipPost as $item)
                     <tr>
+                    <td>{{ucfirst($item->category)}}</td>
                       <td>{{ucfirst($item->cargo_name)}}</td>
                       <td>{{date("jS F, Y", strtotime($item->pdate))}}.</td>
                       <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}.</td>

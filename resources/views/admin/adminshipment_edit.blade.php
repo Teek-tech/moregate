@@ -86,29 +86,42 @@ desired effect
                             @csrf 
                             @method('patch')
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                         <div class="form-group" id="name-field">
                                                 <label for="Name">Name</label>
                                             <div class="form-input">
-                                                <input type="text" class="form-control" id="cargo_name" name="cargo_name" placeholder="Name of shipment..." value="{{$editPost->name}}">
+                                                <input type="text" required class="form-control" id="cargo_name" name="cargo_name" placeholder="Name of shipment..." value="{{$editPost->cargo_name}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('cargo_name')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                        <div class="form-group" id="phone-field">
+                                                <label for="phone-field">From</label>
+                                            <div class="form-input">
+                                               <select name="category" class="form-control" required>
+                                               <option value="{{$editPost->category}}">{{$editPost->category}}</option>
+                                               <option value="guangzhou">Guangzhou</option>
+                                               <option value="shoaxing">Shoaxing</option>
+                                               </select>
+                                            </div>
+                                            <div class="text-danger">{{$errors->first('category')}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
                                                 <label for="phone-field">Shipment Arrival date</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="shipmentdate" name="shipmentdate" placeholder="Date of Arrival" value="{{$editPost->shipmentdate}}">
+                                                <input type="date" required class="form-control" id="shipmentdate" name="shipmentdate" placeholder="Date of Arrival" value="{{$editPost->shipmentdate}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('shipmentdate')}}</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                                         <div class="form-group" id="phone-field">
                                                 <label for="phone-field">Packing list date</label>
                                             <div class="form-input">
-                                                <input type="date" class="form-control" id="pdate" name="pdate" placeholder="Packing list date" value="{{$editPost->pdate}}">
+                                                <input type="date" required class="form-control" id="pdate" name="pdate" placeholder="Packing list date" value="{{$editPost->pdate}}">
                                             </div>
                                             <div class="text-danger">{{$errors->first('pdate')}}</div>
                                         </div>

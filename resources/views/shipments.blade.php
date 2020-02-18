@@ -67,6 +67,25 @@
     <section>
        <div class="section-padding">
           <div class="container">
+          <div class="col-md-12">
+          <form action="{{route('shipments')}}" method="post">
+          @csrf 
+          @method('POST')
+          <div class="form-group">
+              <div class="col-md-6  col-xs-6">
+              <select name="search" id="" required class="form-control">
+              <option  disabled selected>Select City</option>
+              <option value="guangzhou">Guangzhou</option>
+              <option value="shoaxing">Shoaxing</option>
+              </select>
+              </div>
+            <div class="col-md-3 col-xs-6">
+                  <button class="btn btn-primary">Search</button>
+                  <br><br>
+            </div>
+          </div>
+          </form>
+          </div>
         <div class="col-xs-12">
           <div class="">
             <div class="">
@@ -78,25 +97,40 @@
                 </div> -->
             </div>
             <!-- /.box-header -->
-            <div class="">
+            <div class="one">
                 <table class="table no-margin" id="table_id">
                   <thead>
                     <th>S/N</th>
+                    <th>From</th>
                     <th>Packing list date</th>
                     <th>Date of Arrivals</th>
                   </thead>
                   <tbody>
                   @php $sn = 1; @endphp
-                  @foreach($shipPost as $item)
+                  @if($search)
+                  @foreach($getSearch as $item)
                     <tr>
                     <td>{{$sn++}}</td>
+                    <td>{{ucfirst($item->category)}}</td>
                       <td>{{date("jS F, Y", strtotime($item->pdate))}}</td>
                       <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}</td>
                     </tr>
-                  @endforeach  
+                  @endforeach 
+                  @else
+                  @foreach($shipPost as $item)
+                    <tr>
+                    <td>{{$sn++}}</td>
+                    <td>{{ucfirst($item->category)}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->pdate))}}</td>
+                      <td>{{date("jS F, Y", strtotime($item->shipmentdate))}}</td>
+                    </tr>
+                  @endforeach 
+                  @endif 
                 </tbody>
                </table>
              </div>
+
+             <!-- Two -->
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
@@ -106,7 +140,10 @@
        </div>
     </section>
     <!--CONTACT US AREA END-->
+
+
+
+   
     @include('layouts.footer')
 </body>
-
 </html>

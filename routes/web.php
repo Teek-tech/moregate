@@ -26,7 +26,8 @@ Route::get('services', function () {
 Route::get('contact', 'ContactformController@create')->name('contact');
 Route::post('contact', 'ContactformController@send')->name('send.message');
 
-Route::get('shipments', 'shipmentController@arrival')->name('shipments');
+Route::any('shipments', 'shipmentController@arrival')->name('shipments');
+//Route::any('search-arrival', 'shipmentController@search')->name('search.arrival');
 
 
 
@@ -61,5 +62,4 @@ Route::delete('users/{id}/edit', 'AdminController@admindelete')->name('admin.del
 
 Route::get('/home', 'AdminController@index');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 
